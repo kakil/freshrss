@@ -1,0 +1,24 @@
+# docker-compose.yml
+version: "3.8"
+
+volumes:
+  data:
+  extensions:
+
+services:
+  freshrss:
+    image: freshrss/freshrss:latest
+    container_name: freshrss
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: 10m
+    volumes:
+      - data:/var/www/FreshRSS/data
+      - extensions:/var/www/FreshRSS/extensions
+    environment:
+      TZ: UTC
+      CRON_MIN: "2,32"
+    # Don’t expose ports manually; Coolify handles it via reverse proxy
+    # ports:
+    #   - "8080:80"
