@@ -19,3 +19,5 @@ services:
     environment:
       TZ: UTC
       CRON_MIN: "2,32"
+    ports:
+      - "8880:80"
