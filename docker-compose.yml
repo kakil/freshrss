@@ -2,8 +2,8 @@
 version: "3.8"
 
 volumes:
-  data:
-  extensions:
+  freshrss_data:
+  freshrss_extensions:
 
 services:
   freshrss:
@@ -14,9 +14,9 @@ services:
       options:
         max-size: 10m
     volumes:
-      - ./:/var/www/FreshRSS
-      - data:/var/www/FreshRSS/data
-      - extensions:/var/www/FreshRSS/extensions
+      - ./:/var/www/FreshRSS                 # Mount your repo source code
+      - freshrss_data:/var/www/FreshRSS/data
+      - freshrss_extensions:/var/www/FreshRSS/extensions
     environment:
       TZ: UTC
       CRON_MIN: "2,32"
