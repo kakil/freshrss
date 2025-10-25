@@ -14,12 +14,8 @@ services:
       options:
         max-size: 10m
     volumes:
-      - ./:/var/www/FreshRSS                 # Mount your repo source code
       - freshrss_data:/var/www/FreshRSS/data
       - freshrss_extensions:/var/www/FreshRSS/extensions
     environment:
       TZ: UTC
       CRON_MIN: "2,32"
-    # Don’t expose ports manually; Coolify handles it via reverse proxy
-    ports:
-      - "8880:80"
