@@ -21,5 +21,5 @@ services:
       TZ: UTC
       CRON_MIN: "2,32"
     # Don’t expose ports manually; Coolify handles it via reverse proxy
-    # ports:
-    #   - "8080:80"
+    ports:
+      - "8080:80"
